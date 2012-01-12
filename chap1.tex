@@ -1,70 +1,80 @@
 % chap1.tex - Week 1
-\chapter{Week 1}
-\section{Day 1 - ``Things need to change''}
-\subsection{Meeting the Team}
-If you're already a seasoned version control user, you may want to skip this chapter.
-It's kind of like an introduction to why we even need version control systems in the first place.
-This chapter looks at Tamagoyaki Inc's requirements and why they choose the VCS that seemed right for them.
-Tamagoyaki Inc.\ creates software for turning a standard PC into a media center.
-Their product ships to the end user and they rely very heavily on having a good presence at trade shows, in order to bring in sales.
-The following conversation describes the events that led up to the defining "We need a VCS!" discussion.
+\chapter{Semaine 1}
+\section{Jour 1 - ``Les choses doivent changer''}
+\subsection{Réunir l'équipe}
+Si vous êtes déjà un utilisateur chevronné de contrôle de version, vous pourriez vouloir sauter ce chapitre.
+C'est une sorte d'introduction à pourquoi nous avons même besoin de systèmes de contrôle de version en premier lieu.
+Ce chapitre observe aux besoins de Tamagoyaki Inc. et pourquoi ils choisissent le VCS (NDT: Version Control System, ce terme standard ne sera pas traduit dans la suite du document) qui semblait leur convenir.
+Tamagoyaki Inc. crée un logiciel qui transforme un PC standard en media center.
+Leur produits est destiné à l'utilisateur final et ils sont fortement dépendants d'une bonne présence aux salons commerciaux, pour ramener des ventes.
+La conversation suivante décrit les évènements qui ont conduit à l'établissement de la discussion "Nous avons besoin d'un VCS!".
 
 \begin{trenches}
-John sat at his desk and looked out of the window.
-The rain was drizzling down the pane, but he didn't care.
-It was a quiet Monday morning, the release had gone well on Friday and John was just thinking about implementing the new abstraction layer to the database he'd been asked for.
-Through the music playing in his headphones he hardly noticed his boss, the chief designer and the CEO approaching his desk.
+John s'assit à son bureau et regarda à travers la fenêtre.
+La bruine tombait sur le volet, mais il s'en fichait.
+C'était un lundi tranquille, la livraison s'était bien déroulée vendredi et John était juste en train de penser à l'implémentation the la nouvelle couche d'abstraction à la base de données qui lui avait été demandée.
+``John,'' hurla son patron, Markus, ``amenez votre équipe dans la salle de présentation. Maintenant !''
 
-``John,'' shouted his boss, Markus, ``get your team into the board room. Now!''
-
-Things didn't look good.
+Les choses ne se présentaient pas bien.
 
 \thoughtbreak
 
-``So, what we'd like to know John, is just how a bug that was supposed to have been\ldots'' the CEO back-tracked, ``that was demonstrated as being fixed two weeks ago, made it into the final release of the software?''
+``Alors, ce que nous aimerions savoir John, c'est juste comment un bug qui était supposé avoir été corrigé\ldots'' le PDG se reprit,
 
-``I'm sorry,'' John started, before being cut off.
+``qui avait été certifié comme étant fixé il y a 2 semaines, a pu se glisser dans la dernière version de notre logiciel ?''
 
-``Sorry doesn't cut it John,'' said the CEO, Wayne Tobi,
-``This was almost a major embarrassment for Tamagoyaki Inc.\ and we need to ensure this doesn't happen again. The demonstration at the trade show was close to a complete failure. Luckily someone had the good sense to bring a backup machine.''
-He turned to Markus.
-``I want a report on my desk by the end of the day that states what the problem was, how it slipped through our fingers and what safe guards we are going to put into place so that things like this never happen again.''
+``Je suis désolé,'' commença John, avant d'être interrompu.
 
-``Of course sir,'' Markus replied.
-He was bright red with his own variety of embarrassment.
+``Être désolé ne suffit pas John,'' dit le PDG, Wayne Tobi,
+``Ce fut presque une déconfiture majeure pour Tamgayoki Inc. et nous avons besoin de nous assurer que cela ne se reproduise pas à nouveau. Ladémonstration au salon était à 2 doigts de l'échec complet. Heureusement quelqu'un avait eu le bon sens d'amener une machine de sauvegarde.''
 
-The room fell silent and a few minutes of silence passed before the meeting was drawn to a close and John and his team were allowed to leave.
+Il se tourna vers Markus.
+``Je veux un rapport sur mon bureau d'ici la fin de la journée qui explique quel était le problème, comment il nous a glissé des mains et quelles mesures préventives nous allons mettre en oeuvre pour que des choses comme ça ne se reproduise plus jamais.''
+
+``Bien sur monsieur,'' répondit Markus.
+Il était rouge vif avec un embaras tout personnel.
+
+La pièce devint silencieuse et quelques minutes de silence s'écoulèrent avant que la réunion fut cloturée et que John et son équipe furent autorisés à partir.
 
 \thoughtbreak
 
-``So, you're telling me that when Simon came back from holiday, he picked up an older copy of the library from the network share and pushed his latest code into that?'' Markus was holding back the anger.
+``Donc, vous me dites que quand Simon est revenu de vacances, il a utilisé une vieille version de la bibliothèque sur le partage réseau et qu'il a pushé son code le plus récent la dedans ?'' Markus retenait la colère.
 
-``It appears that way.'' Said John sullenly.
+``Ca ressemble à ça.'' Dit John maussade.
 
-``Oh for crying out loud. How did this happen? Why wasn't he using the latest version? And why didn't QA pick up on it?'' Markus looked across the meeting room at John.
-``John, you need to make sure this doesn't happen again. Find a solution!''
+``Oh bordel de merde. Comment c'est arrivé ? Pourquoi il n'a pas utilisé la dernière version ? Et comment la qualification n'a pas détecté ça ?'' Markus regarda John à travers la pièce de réunion.
+``John, vous devez vous assurer que cela n'arrive plus jamais. Trouvez une solution !''
+
 \end{trenches}
 
-\subsection{The trouble with storage}
-It's not like this situation is completely uncommon.
-At one point or another most people have managed to pull old code from somewhere and mistakenly use it in place of the latest, up to date, version.
-When storing code on network shares or on local disks, it's easy to lose sight of which version is which, no matter how good your naming convention is.
-It's like trying to build one of the baked bean puzzles when you have three boxes of them and you tipped all the pieces into one box for simplicities sake.
-Not so simple any more is it?
+\subsection{Le problème avec le stockage}
+Ce n'est pas que cette situation soit complètement inhabituelle.
+A un moment ou à un autre la plupart des gens ont réussi à récupérer du vieux code d'un endroit et à l'utiliser à la place de la dernière version à jour.
 
-People have a tendency to use folder names which mean something to them.
-However it doesn't necessarily follow that this name means something to another developer.
-``Version 2.3 -- fixed bug a'' only means something to you if you know what bug a is and something like ``Version 2.3 -- fixed bug a(2)'' is even worse.
-Unfortunately allowing people to free form type their own descriptive file names will always lead to problems like this.
-When these files are stored on a network share, the problem is exacerbated ten fold because there is often no fixed reference point.
+Quand on stocke du code sur des partages réseau ou sur des disques locaux, c'est facile de perdre de vue quelle version est quelle version,  
+aussi bonne que soit votre convention de nommage.
 
-\index{Version Control}So what's the solution? Well, in a large number of cases version control can make sure that not only is there a defined place for data to sit, and with a defined structure, but also that you have a full history of the code.
-Accountability is very important in code development, especially when releasing software to customers.
-In some situations a customer will even mandate that the code being developed for them is stored in a version controlled environment.
-In this way, the customer can ask when a certain piece of code was edited, or when an addition first entered the code base.
+C'est comme essayer d'assembler un de ces puzzle d'haricots cuits (NDT: un puzzle réputé difficile) quand vous avez 3 boîtes de puzzle et que vous avez versé toutes les pièces dans une boîte dans un souci de simplicité.
+Plus aussi simple, n'est ce pas ?
 
-\section{Day 3 - ``A possible solution''}
-\subsection{Version Control Nuances}
+Les gens ont une tendance à utiliser des noms de répertoire qui veut dire quelquechose pour eux.
+Cependant cela n'implique pas nécessairement que ce nom signifie quelquechose pour un autre dévelopeur.
+``Version 2.3 -- Corrige le bug a'' veut seulement dire quelquechose pour vous si vous savez quel bug est a et quelquechose comme
+``Version 2.3 -- Corrige le bug a(2)'' est encore pire.
+Malheureusement, autoriser les gens à tapper librement leur propre nom de fichier mènera toujours à des problème comme ça.
+Quand ces fichiers sont stockés sur un partage réseau, le problème est 10 fois plus exacerbé parce qu'il n'y a souvent aucun point fixe de référence.
+
+\index{Version Control}Alors quelle est la solution ? Eh bien, dans un grand nombre de cas le contrôle de version peut garantir que non seulement il y a un endroit définit pour stocker les données avec une structure définie, mais aussi que vous avez un historique complet du code.
+La responsabilisation (NDT: accountability) est trés importante dans le développement de code, spécialement quand on délivre du code à des clients.
+Dans certaines situations un client exigera même que le code développé pour lui soit stocké dans un environnement ou les versions sont contrôllées.
+De cette manière, le client peut demander quand une partie du code a été éditée, ou quand un ajout est entré pour la première fois dans la base de code.
+
+\section{Jour 3 - ``Une solution possible''}
+\subsection{Nuances sur le contrôle de version}
+Il y a plusieurs offre pour le contrôle de version dans la nature, Git, Mercurial, Subversion, CVS et Bazaar pour nommer quelquesunes des solutions Open Source.
+Peut-être une question plus pertinente est quel système de contrôle de version utiliser.
+Chacun d'eux a ses avantages et ses inconvénients relativement aux autres, mais certains sont plus appropriés à certaines taches que d'autres.
+MARK
 There are many offerings for version control out there, Git, Mercurial, Subversion, CVS, and Bazaar to name but a few of the open source ones.
 Perhaps a more pertinent question is just which version control system to use.
 Each of them has their relative advantages and disadvantages, but some will be suited to certain tasks more than others.
