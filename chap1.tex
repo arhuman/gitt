@@ -74,108 +74,106 @@ De cette manière, le client peut demander quand une partie du code a été édi
 Il y a plusieurs offre pour le contrôle de version dans la nature, Git, Mercurial, Subversion, CVS et Bazaar pour nommer quelquesunes des solutions Open Source.
 Peut-être une question plus pertinente est quel système de contrôle de version utiliser.
 Chacun d'eux a ses avantages et ses inconvénients relativement aux autres, mais certains sont plus appropriés à certaines taches que d'autres.
-MARK
-There are many offerings for version control out there, Git, Mercurial, Subversion, CVS, and Bazaar to name but a few of the open source ones.
-Perhaps a more pertinent question is just which version control system to use.
-Each of them has their relative advantages and disadvantages, but some will be suited to certain tasks more than others.
-Also, it's worth noting that if you are interacting with other pieces of software, or share some development with another set of developers, it is a good idea to enquire to see what they are using.
-Usually you'll find collaboration, forking and patching a lot easier if you're using the same version control system as your upstream or partners.
+Il est aussi utile de noter que si vous interagissez avec d'autre composant logiciels, ou partagez une partie du développement avec un autre
+groupe de dévelopeurs, c'est une bonne idée de leur demander ce qu'ils utilisent.
+Généralement vous trouverez la collaboration, le forking et le patching beaucoup plus facile si vous utilisez le même système de contrôle de version que vos partenaires en amont.
 
 \begin{trenches}
-``So really it seems like the only real solution to this problem bar Klaus' suggestions of reducing the workforce to only one developer, thank you Klaus,'' Klaus nodded in acknowledgement back to John, ``is to implement a version control system.''
+``Donc vraiment, il semble que la seule solution réelle à ce problème Klaus en excluant la suggestion de Klaus de réduire l'équipe de production à seulement un dévelopeur, merci Klaus,'' Klaus opina en retour à John, ``est de mettre en place un système de controle de version.''
+Markus mordillait sa lèvre.
+``Je vois ou vous voulez en venir John, mais les systèmes de controle de version ne sont-ils pas vraiment chers ?''
 
-Markus chewed his lip.
-``I can see where you're coming from here John, but aren't version control systems really expensive?''
+``Il y a plusieurs solutions open source que nous pourrions regarder en premier,'' intervint une nouvelle voix, ``certaines d'entre elles sont supposées être plutôt bonnes.''
 
-``There are a number of open source offerings we could take a look at first,'' piped up a new voice in the discussion, ``some of them are supposed to be pretty good.''
+``Allons dans ce sens, regardons les divers avantages et inconvénients et réunissons nous demain pour discuter des résultats,'' dit John.
 
-``Let's all go away, take a look at the various pros and cons and reconvene tomorrow to discuss the findings,'' said John.
-``Sound fair?''
+``Ca vous semble correct ?''
 \end{trenches}
 
-So now we need to take a look at some various features of version control systems and see what the various advantages and disadvantages are of each.
-We are going to focus on Git here primarily, as this is what the rest of the book is all about.
-It is assumed that if you are reading this book, you have most likely already made the decision about which version control system you are going to use.
-So let's talk about the various features that are prevalent in most version control systems.
 
-\index{Distributed Version Control}\subsection{Distributed Version Control}
-Version control systems usually fit into one of two categories; centralised, or distributed.
-Git is a distributed version control system.
-It has been designed to run almost everything at a local level.
-This will become much more clear when we talk about other features of Git a little later on, but for now just understand that Git isn't tied to a centralised repository.
-This is super powerful.
-No Really!
+Donc maintenant nous devons jeter un oeil aux diverses fonctionnalités des systèmes de contrôle de version et voir quels sont les divers avantages et incovénients de chacun.
+Nous allons nous focaliser ici principalement sur git, car c'est l'objet du reste de ce livre.
+Il est supposé que si vous lisez ce livre, vous avez très probablement déjà pris votre décision au sujet du système de contrôle de version que vous allez utiliser.
+Donc discutons des diverses foncionnalités qui sont les plus répandues dans les systèmes de contrôle de version.
 
-\index{Branching}\subsection{Branching}
-Most version control systems offer branching as part of their default feature set.
-Branching allows developers to create in essence a clone of their repository and mess around with it, safe in the knowledge that they can switch back to the original whenever they need to.
-This allows developers the freedom to experiment with all manner of things without being afraid of affecting the original/clean code base.
+\index{Contrôle de version distribué}\subsection{Contrôle de version distribué}
+Les systèmes de contrôle de version se rangent généralement dans une des deux catégories; centalisés, ou distribués.
+Git est un système de contrôle de version distribué.
+Il a été conçu pour exécuter presque tout localement.
+Cela deviendra beaucoup plus clair quand nous discuterons plus tard des autres fonctionnalités de Git, mais pour l'instant, comprenez juste que Git n'est pas lié à un dépôt centralisé.
+C'est super puissant.
+Non vraiment !
 
-Git implements branching in a special way.
-Most older version control systems implement branching in a way that almost creates a separate copy of the repository.
-This is slow and cumbersome.
-Git's branching method gives developers the ability to create multiple local branches to play with.
-Due to its distributed nature, when pushing code to a more central location for others to pull from, developers can choose which branches they want to push, allowing code to be experimented with privately.
+\index{Branchement}\subsection{Branchement}
+La plupart des systèmes de contrôle de version offrent le branchement dans leur ensemble de fonctionnalités par défaut. 
+Le branchement autorise les développeurs à créer essentiellement un clone de leur dépôt et de le modifier, avec la certitude qu'ils pourront revenir à l'original quand ils en auront besoin.
+Cela donne aux développeurs la liberté d'expérimenter toutes sortes de choses sans avoir peur d'affecter la base de code originale/propre.
 
-The implementation of branching in Git is fast.
-Due to the fact that repositories are stored locally, the speed of creating a local branch is limited only by the speed of the disks on a local machine.
-Git's implementation is so lightweight that even this speed factor is negligible.
+Git implémente le branchement d'une manière spéciale.
+La plupart des anciens systèmes de contrôle de version implémentent le branchment d'une manière qui crée presque toujours une copie séparée du dépôt.
+C'es lent et lourd.
+La méthode de branchement de Git donne aux développeurs la possibilité de créer plusieurs branches locales pour jouer avec.
+De part sa nature distribuée, quand ils poussent (NDT: pushing) du code vers un emplacement plus centralisé d'ou les autres pourront le récuppérer, les développeurs peuvent choisir quelles branches ils veulent pousser, autorisant le code a être testé en privé.
 
-\index{Staging}\subsection{Staging}
-Git deals with committing changes into the repository differently to most other version control systems by the introduction of the staging area.
-The staging area allows developers to prepare their commits before they are written to the repository.
-Why is this useful or any different to any other version control system.
-In Git you can make a change to a file, add it to the staging area, and then continue to make changes to that file, even though you have not yet actually committed anything.
-It should be noted that it's not absolutely necessary to use the staging area, but it is there for developers wishing to utilise it.
+L'implémentation par Git du branchement est rapide.
+De part le fait que les dépôt sont stockés locallement, la vitesse de création d'une branche locale est limitée seulement par la vitesse des disques de la machine locale.
+L'implémentation de Git est tellement légère que même le facteur vitesse est négligeable.
+
+\index{Mise en attente}\subsection{Mise en attente}
+Git gère le commit des changements dans le dépôt différemment de la plupart des autres systèmes de contrôle de version par l'introduction d'une zone de mise en attente (NDT: staging area).
+La zone de mise en attente autorise les développeurs de préparer leur commits avant qu'ils ne soient écrits dans le dépôt.
+Pourquoi est-ce utile ou même différent de nimporte lequel des autres systèmes de contrôle de version ? 
+Avec Git vous pouvez effectuer un changement dans un fichier, l'ajouter à la zone de mise en attente, et ensuite continuer a effecuter des changements dans ce fichier, même en n'ayant en fait pas encore commité quoique ce soit.
+Il doit être noté que ce n'est pas absolument nécessaire d'utiliser la zone de mise en attente, mais elle est là pour les développeurs souhaitant l'utiliser.
 
 \index{workflow}\subsection{Workflow}
-Due to the way that Git has been designed, it's possible to use it in practically any work flow you can think of.
-Three of the most common workflows are explained below, and Git can work in any of these, making it one of the more versatile systems out there.
+De part la manière dont il a été conçu, il est possible de l'utiliser dans pratiquement nimporte quel workflow auquel vous pourriez penser.
+Trois des workflows les plus courants sont expliqué plus bas, et Git peut fonctionner dans nimporte lequel d'entre eux, ce qui en fait un des systèmes de contrôle de version les plus polyvalente disponible.
 
-\index{workflow!Centralised}\subsubsection{Centralised Workflow}
-In a centralised workflow, a single shared repository is used.
-Multiple developers pull changes from here into local working copies, work on the local version, and then push it back up to the central location.
+\index{workflow!Centralisé}\subsubsection{Workflow Centralisé}
+Dans un workflow centralisé, un dépôt partagé unique est utilisé.
+Différents développeurs vont y récupérer les changements dans des copies de travail locales, travailler sur la version locale, et la pousser en retour vers vers l'endroit centralisé.
 
-Git handles this workflow just like most other version control systems.
-A developer can not push his changes until he has pulled everything up to the latest from the central repository and resolved any conflicts that may arise.
+Git gère ce workflow juste comme la plupart des autres systèmes de contrôle de version.
+Un développeur ne peut pas pousser ses changements jusqu'à ce qu'il ait tout récupéré (NDT: pulled) jusqu'aux dernières versions du dépôt central et résolu les conflits qui auraient pu apparaître.
 
-Using the centralised model for the workflow, each developer has the same level of access to the repository and is considered as \textbf{important} as each other.
-For smaller teams, this method will work well, but as teams get larger, a centralised method may get tedious.
-As more and more people start to access the same files, conflicts and other issues often begin appearing more often.
+En utilisant le modèle centralisé pour le workflow, chaque développeur a le même niveau d'accès au dépôt est considéré comme aussi \textbf{important} qu'un autre.
+Pour de petites équipes, cette méthode fonctionnera bien, mais quand les équipes grandissent, une méthode centralisée peut devenir fastidieuse.
+Quand de plus en plus de personnes commencent à accéder aux mêmes fichiers, des conflits et d'autres problèmes commencent souvent à apparaître plus fréquemment.
 
-\figuregith{7cm}{images/f-w1-d1.pdf}{Centralised Workflow}
+\figuregith{7cm}{images/f-w1-d1.pdf}{Workflow centralisé}
 
-\index{workflow!Integration Manager}\subsubsection{Integration Manager Workflow}
-The integration manager workflow is similar to the centralised workflow because there is still a \textbf{blessed} repository which everyone uses as a reference.
-The difference here is that there is only one person who has the rights to push changes to the \textbf{blessed} repository.
-This person is referred to as the Integration Manager.
+\index{workflow!Gestionnaire d'Intégrations}\subsubsection{Workflow de gestionnaire d'intégration}
+Le workflow du gestionnaire d'intégration est similaire au workflow centralisé parce qu'il y a encore un dépôt \textbf{consacré} que tout le monde utilise comme référence.
+La différence ici est qu'il n'y a qu'une seule personne qui a le droit de pousser les changements vers le dépôt \textbf{consacré}.
+Cette personne est appelée le gestionnaire d'intégration.
 
-This workflow is handled exceedingly well by Git.
-Developers will work on their repositories locally and then once they are happy, will push their changes to a location where the Integration Manager can see them.
-The Integration Manager will then review the changes that the developers have made and will merge them into his own local repository.
-Once they are happy that everything is working well, the Integration Manager will push their changes to the blessed repository so that all the other developers can access the changes.
+Ce workflow est extrèmement bien géré par Git.
+Les développeurs vont travailler localement sur leurs dépôts et quand ils seront satisfaits, pousser leur changements vers un endroit où le gestionnaire d'intégration peut les voir.
+Le gestionnaire d'intégration observera les modifications que ces développeurs ont fait et les fusionnera (NDT: merge) dans son propre dépôt.
+Une fois qu'ils seront satisfaits que tout fonctionne bien, le gestionnaire d'intégration poussera leurs changements vers le dépôt consacré afin que tous les autres développeurs puisse accéder aux changements.
 
-\figuregith{7cm}{images/f-w1-d2.pdf}{Integration Manager Workflow}
+\figuregith{7cm}{images/f-w1-d2.pdf}{Workflow du gestionnaire d'intégration}
 
-\index{workflow!Dictator and Lieutenant}\subsubsection{Dictator and Lieutenant Workflow}
-The dictator and lieutenant workflow is practically an extension to the integration manager workflow.
-It is more suited to larger teams, where modules or sections of the code can be assigned to a \textbf{Lieutenant} who is responsible for blessing all of the changes to that particular section.
+\index{workflow!Dictateur et Lieutenant}\subsubsection{Workflow du dictateur et du Lieutenant}
+Le workflow du dictateur et du lieutenant est pratiquement une extension du workflow du gestionnaire d'intégration.
+Il est plus adapté à de grandes équipes, où des modules ou sections du code peuvent être assignés à un \textbf{Lieutenant} qui est responsable de consacrer tous les changements à cette section particulière.
 
-Once the Lieutenants are happy with their code, they make it available to the Dictator.
-The Dictator then takes on a role similar to the Integration Manager from the previous model.
-In the end, all of the changes are pushed to the blessed repository for the developers at the bottom of the tree to pull from.
+Une fois que les Lieutenants sont satisfaits de leur code, ils le rendent disponible pour le Dictateur.
+Le Dictateur a alors un rôle similaire à celui du Gestionnaire d'Intégration du modèle précédent.
+A la fin, tous les changments sont poussés vers le dépôt consacré pour que les développeurs puissent les récupérer à la base de l'arbre (NDT: nimporte quoi...)
 
-\figuregith{7cm}{images/f-w1-d3.pdf}{Dictator and Lieutenant Workflow}
+\figuregith{7cm}{images/f-w1-d3.pdf}{Workflow Dictateur et Lieutenant}
 
 \begin{callout}{Terminology}{Blessed}\index{blessed (repository)}
-A blessed, or canonical, repository is one which has the approval of the managers of the project.
-The blessed repository is supposed to be the de facto standard where all other clones are made from.
-If there is one place where code should be correct, it is the blessed repository.
-If you are hosting the project in a public place, the blessed repository will usually be the one that is made available to people as a stable point for developing from.
+Un dépôt consacré (NDT: blessed), ou canonique est celui qui a l'approbation des gestionnaire du projet.
+Le dépôt consacré est supposé être le standard de facto d'où tous les autres clones sont tirés.
+Si vous hébergez le projet dans un endroit public, le dépôt consacré sera généralement celui qui sera rendu disponible aux gens comme point
+de départ stable d'où commencer leur développement.
 \end{callout}
 
-The main thing to remember, is that Git can utilise any of these workflows.
-This makes it a very flexible system, allowing you to work in whichever way you decide.
+La principale chose à retenir, est que Git peut utiliser n'importe lequel de ces workflows.
+Cela en fait un système trés flexible, vous autorisant à travailler quelque soit la manière que vous choisissez (NDT: pas joli)
 
 \index{offline committing}\subsection{Offline Committing}
 Perhaps one of the most useful and undervalued features of distributed version control systems is that of offline committing.
