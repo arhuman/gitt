@@ -175,100 +175,101 @@ de départ stable d'où commencer leur développement.
 La principale chose à retenir, est que Git peut utiliser n'importe lequel de ces workflows.
 Cela en fait un système trés flexible, vous autorisant à travailler quelque soit la manière que vous choisissez (NDT: pas joli)
 
-\index{offline committing}\subsection{Offline Committing}
-Perhaps one of the most useful and undervalued features of distributed version control systems is that of offline committing.
-It may be undervalued because not all version control systems have it.
-Offline committing is the ability to continue adding and committing files to the repository without being connected to a centralised repository.
+\index{Commit déconnecté}\subsection{Commit déconnecté}
+Peut être une des fonctionnalités la plus utile et la plus sous-évaluée des systèmes de contrôle de version distribué est le commit déconnecté (NDT: Offline commiting).
+Elle est peut-être sous-évalué car tous les systèmes de contrôle de version ne l'ont pas.
+Le commit déconnecté est la capacité à continuer à ajoujer et commiter des fichiers dans le dépot sans être connecté à un dépot centralisé.
 
-When travelling or just simply when out of the office, developers and integrators alike are able to continue managing code, viewing histories, viewing diffs and committing changes to their repository.
-This is all due to the fact that Git does 99\% of all of its operations locally.
-When a repository is cloned, Git actually sets up a copy of the entire repository locally, giving developers the flexibility to work anywhere, without requiring access to the company network.
+Quand on voyage ou juste quand on est hors du bureau, les développeurs ainsi que les intégrateurs peuvent continuer à gérer le code, voir l'historique, voir les diffs et commiter les changement à leur dépôt.
+C'est entièrement du au fait que Git effectue 99\% de toutes ses opérations localement.
+Quand est dépôt est cloné, Git effectue en réalite une copie complète du dépôt locallement, ce qui donne aux développeurs la flexibilité de travailler partout, sans avoir besoin d'un accès au réseau de la société.
 
-When returning to the office, the developers simply push their changes to their ``public'' space, be it local or to a blessed location, and all of the commits that have been made whilst they are away are then made available to the rest of the team, including all history and snapshots.
+De retour au bureau, les développeurs poussent simplement leurs changements vers leur espace ``public'', qu'il soit local ou un endroit consacré, et tous les commits qu'ils ont effectués alors qu'ils étaient en déplacement sont alors rendu disponible pour le reste de l'équipe, incluant tout l'historique et les instantanés (TODO: snapshots ?).
 
-\index{developer interaction}\subsection{Developer Interaction}
-One factor to consider when choosing a version control system, is that of developer interaction.
-By this we are referring to the way in which developers use and interact with the version control system itself.
-There are four main methods for VCS interaction
+\index{interaction avec le développeur}\subsection{Interaction avec le développeur}
+Un facteur à considérer quand on choisit un système de contrôle de version, est celui de l'interaction avec le développeur.
+Par cela nous faisons réferrence à la manière dont les développeurs utilisent et interagissent avec le systèmes de contrôle de version lui-même.
+Il y a 4 principales méthodes d'interaction avec un VCS.
 
-\index{user interface}\index{user interface!GUI}\subsubsection{Graphical User Interface Client (GUI)}
-A graphical user interface allows the developer, or user, to physically manipulate the repository using a mouse pointer and a graphically rich environment.
-A GUI client will typically consist of separate application which is run when a user wants to make changes to a repository such as adding files or committing changes.
+\index{interface utilisateur}\index{interface utilisateur!GUI}\subsubsection{Client d'interface utilisateur graphique (GUI)}
+Une interface utilisatateur graphique autorise le développeur, ou l'utilisateur, à manipuler le dépôt en utilisant une souris et un environnement riche en graphique.
+Un client GUI consist typiquement en une application séparée qui est exécuté quand un utilisateur veut effectuer des changement dans le dépôt tel qu'ajouter des fichiers ou commiter des changements.
 
-Some developers prefer having a separate client with which to interact with their repository, whilst others prefer to have things integrated a little more.
+Certains développeurs préfèrent avoir un client séparé avec lequel ils peuvent interagir avec leur dépôt, alors que d'autres préfèrent avoir les choses un peu plus intégrées.
 
-\index{user interface!shell extension}\subsubsection{Shell Extension Integration}
-Shell integration allows the user to interact with their repository using the graphical environment that they would usually use for manipulating files and performing routine directory maintenance.
-One of the most common Shell Extensions for Git is the msysgit interface which integrates itself into Windows Explorer, allowing a user to right click on an entity whilst inside a git working tree, and be presented with a context sensitive menu for entering a shell for VCS operations.
 
-\index{user interface!command line}\subsubsection{Command Line Interface (CLI)}
-The command line interface is favoured by many developers as they can script with it and can see exactly what is going on, often in much more detail that with a GUI.
-The CLI gives total control over the system and it is worth noting that almost all version control systems start life as command line driven interfaces.
-Why is this so? It can take a lot of time and effort to put all the options and nuances of a system into a GUI.
-The CLI will almost always be the most powerful of all tools, especially where version control systems are concerned.
+\index{interface utilisateur!extension shell}\subsubsection{Intégration des extension dans le Shell}
+L'intégration au Shell autorise l'utilisteur à interagir avec leur dépôt en utilisant l'environnement graphique qu'il utiliserait généralement pour manipuler les fichiers et effectuer les opérations de maintenance de répertoire.
+Une des extension Shell les plus communes pour Git est l'interface msygit qui s'intègre à Windows Explorer, autorisant l'utilisateur à effectuer un click droit sur une entité à l'intèrieur d'un arbre de travail Git, et se voir présenter un menu contextuel pour effectuer des opérations de VCS.
 
-\section{Day 4 - ``A decision is reached''}
-\subsection{Analysing Your Requirements}
-The most important aspect of choosing a version control system is to define your requirements.
-These can be few, or they can be quite specific. Let's see what John and his team decide are the most important aspects for them and ultimately what VCS they decide upon.
+\index{interface utilisateur!ligne de commande}\subsubsection{Interface de Ligne de Commande (CLI)}
+L'interface de ligne de command est préférée par beaucoup de développeurs car ils peuvent écrire des scripts avec et voir exactement ce qui se passe, souvent avec beaucoup plus de détail qu'avec une interface graphique (GUI).
+La CLI donne un contrôle total sur le système et il vaut la peine de noter que presque tous les systèmes de contrôle de version commencent leur vie en tant qu'interfaces pilotées par la ligne de commande.
+Pourquoi cela ? Cela peut prendre beaucoup de temps et d'efforts pour mettre toutes les options et nuances d'un système dans une interface graphique.
+La CLI sera preque toujours le plus puissant de tous les outils, spécialement lorsqu'il sagit de systèmes de contrôle de version.
+
+\section{Jour 4 - ``Une décision est prise''}
+\subsection{Analyser vos besoins}
+L'aspect le plus important quand on choisit un sytème de contrôle de version est de définir vos besoins.
+Ils peuvent être peu nombreux, ou assez spécifiques. Voyons ce que John et son équipe considèrent comme les aspects les plus importants et finalement pour quel VCS ils se décident.
 
 \begin{trenches}
-``Offline committing seems like it's a pretty useful thing to have.'' Mike said nodding.
-``Especially with people like John travelling all the time.''
+``Le commit déconnecté semble être une chose utile à avoir.'' Dit Mike en hochant la tête.
+``En particulier avec des personnes comme John qui voyagent tout le temps.''
 
-``I have to admit, it would be nice to be on the plane, and be able to pull all the code together, knowing all of the history of each section,'' replied John.
-``The branching in Git seems to be quite powerful as well.''
+``Je dois l'admettre, ça serait bien d'être dans l'avion, et d'être capable de récupérer (NDT: pull) l'ensemble du code, en connaissant tout l'historique de chaque section,'' répondit John.
+``Le branchement dans Git semble être assez puissant aussi.''
 
-``I must admit,'' chimed in Klaus, ``I've used branching a bit in Subversion before and it was a lifesaver.
-It's supposed to be super fast in Git too.''
+``Je dois admettre,'' renchérit Klaus, ``J'ai utilisé le branchement un peu dans Subversion avant et c'était inestimable.
+C'est sensé être super rapide dans Git aussi.''
 
-``And owing to the fact that Git seems to support several workflows, it means we can try them out and see how they work for us.'' Markus looked at the team.
-``Are we settled on Git then?''
+``Et de part le fait que Git semm suporter plusieurs workflows, cela veut dire que nous pouvons les essayer et voir comment ils marchent pour nous.'' Markus regarda l'équipe.
+``Alors on est d'accord pour Git ?''
 
-The team nodded and everyone walked out of the board room except John.
-Things were about to get interesting for him.
-Very interesting.
+L'éauipe acquiesca et tout le monde sortit de la salle de réunion excepté John.
+Les choses allaient devenir intéressantes pour lui.
+Trés intéressantes.
 \end{trenches}
 
-Since this book is all about Git, we won't delve too far into the workings or features of other version control systems.
-Hopefully, this chapter has given you enough information to go and check out some of the other systems if you feel the need to.
-The main thing to bear in mind is that Git is a Distributed Version Control System or DVCS.
-While this is so, it is equally important to remember that it can be used in the same workflow models as centralised version control systems.
+Comme ce book est sur Git, nous n'allons pas trop approfondir les fonctionnalités ou fonctionnalités des autres système de contrôle de version.
+Espérons que ce chapitre vous a donné assez d'information pour aller vérifier certains des autres systèmes si vous en ressentez le besoin.
+La principale chose à garder à l'esprit est que Git est un Système de Contrôle de Version Distribué ou DVCS.
+Bien qu'il en soit ainsi, il est également important de se souvenir qu'il peut être utilisé dans des modèles de workflows similaires à ceux des systèmes de contrôles de versions centralisés.
 
-John and his teams requirements are nothing special.
-They are a smallish team looking to reap the benefits of having their code in a well organised system.
-They are also looking to reorder their team functions and dynamics in order to fit around the version control system and really make it core to their development.
+Les besoins de John et son équipe n'ont rien de spécial.
+C'est une petite équipe qui cherche à profiter d'avoir son code dans un système bien organisé.
+Ils cherchent aussi à réorganiser les fonctions et dynamiques d'équipe pour s'adapter au système de contrôle de version et l'intégrer réellement au coeur de leur développement.
 
-Version control is not a replacement for workflow.
-It is not intended to make everything better.
-If you have people going off and doing their own thing and being careless about the way they work, version control is not going to suddenly fix everything.
-A tool is just that, a tool and version control is no different.
-You can buy the messiest builder in the trade a nice shiny new tool box, but unless they have the mindset to want to change, you'll probably find that all the tools end up in the largest compartment at the bottom.
+Le contrôle de version ne remplace pas un workflow.
+Il n'est pas prévu pour tout rendre meilleur.
+Si vous avez des personnes qui prennent le large et font leurs propres affaires en ne faisant pas attention à leur manière de travailler, le contrôle de version ne va pas soudainement tout régler.
+Un n'outil n'est qu'un outil et le contrôle de version n'est pas différent.
 
-\section{Day 5 - ``Working like a team''}
-\index{team organisation}\subsection{Team Organisation}
-Now that we have the basics dealt with, let's take a little look at how John arranges his team, and see whether version control is going to work for them.
-It is important that the team understands how the model should work, what they are expected to do and what level of access they have.
-Most of the time people will get more frustrated about not knowing what they should or should not be doing, rather than that they do or don't have access to certain things.
+Vous pouvez engager le constructeur le plus désordonné du marché et une belle boite à outil flambant neuve, mais à moins qu'il n'ait la volonté de changer, vous alleza probablement découvrir que tous les outils finissent au fond tu plus grand compartiment du fond.
+
+\section{Jour 5 - ``Travailler comme un équipe''}
+\index{organisation d'équipe}\subsection{Organisation d'équipe}
+Mainteant que nous nous sommes occupé des bases, jettons un petit coup d'oeil à comment Johan organise son équipe, et voyons si le contrôle de version va fonctionner pour eux.
+Il est important que l'équipe comprenne comment le modèle doit fonctionner, ce qu'ils sont supposés faire et quel niveau d'accès ils ont.
+La plupart des personnes seront plus frustrés de ne pas savoir ce qu'ils devaient ou ne devaient pas faire, plutôt que qu'avoir ou ne pas avoir accés à certaines choses.
 
 \begin{trenches}
-It was 4:36pm on the Friday and the table in the board room was littered with empty coke cans, pizza boxes and one Japanese bento lunchbox, owned by a particularly stubborn member of the team who had vowed never to eat pizza again.
-It had been Marcus' idea to bring in the food reinforcement to help the discussions along.
-The team were trying to decide how to organise their model.
+Il etait 16h36 vendredi et la table de la salle de présentation était jonchée de cannettes de coca vides, de boîtes de pizza et une boîte à repas japonaise bento, appartenant à un membre particulièrement tétu de l'équipe qui avait fait voeu de ne jamais plus manger de pizza.
+L'équipe essayait de se décider sur la manière de s'organiser.
 
-``There's nothing to say we can't use a combination of the models is there?'' asked Mike.
+``Il n'y a rien qui nous interdise d'utiliser une combinaison des modèles, n'est ce pas ?'' demanda Mike.
 
-``I suppose not,'' said John.
-``What did you have in mind.'' His glasses were slipping down his forehead now and he was getting pretty tired.
+``Je suppose que non'' diT John.
+``Qu'est ce que tu as à l'esprit'' Ses lunettes glissaient en bas de son front maintenant et il commencait à être bien fatigué.
 
-``Well, I figure, we basically have the software split into two parts. We have the library, which myself, Klaus and Jack work on. Then there's the UI elements which Simon, Martha and Rob handle. I know there are the tools which Eugene works on too.''
-Everyone had started to listen to Mike as he continued.
-``John, you don't want to have to deal with the library component as this more Klaus' space. So why don't we have two dictators. Klaus and yourself have access to push up to the blessed repository. John can pull from his guys, Klaus from his and we end up with a good model for version control.''
+``Bien, Je suppose, nous avons à la base le logiciel sépara en deux parties. Nous avons la bibliothèqe, sur laquelle Klaus, Jack et moi même travaillons. Ensuite nous avons les élément de la UI que gérent Simon, Martha et Rob. Je sais qu'il y a aussi les outils sur lesquels travaille Eugene''
+Tout le monde avait commencé à écouter alors que Mike continuait.
+``John, tu n'a pas à t'occuper du composant bibliothèque comme c'est plus le domaine de Klaus. Alors pourquoi ne pas avoir deux dictateurs. Klaus et toi avez acccés pour pousser vers le dépôt consacré. John peut puller de ses gars, et Klaus des sien et au final on a un bon modèle pour le contrôle de version.''
 
-John raised his eyebrows, ``Not bad Mike,'' he said, genuinely impressed.
-After spending a few hours going through the various models and who was in charge of what, it felt good to have finally reached a decision.
+John leva ses sourcils, ``Pas mal Mike,'' dit-il, sincèrement impressionné.
+Aprsè avoir passé quelques heures à évaluer les différents modèless et qui était en charge de quoi, ça faisait du bien d'avoir finalement pris une décision.
 
-``So, we start on Monday then?'' asked Markus, who had been listening from the other end of the table.
+``Alors, on commence lundi donc ?'' demanda Markus, qui écoutait de l'autre bout de la table.
 
-``Indeed.'' Announced Klaus, ``Monday we all become Gits!''
+``En effet.'' Annonça Klaus, ``Lundi on est tous sous Git!''
 \end{trenches}
